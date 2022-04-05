@@ -1,0 +1,18 @@
+# Activity 2 (Part 2)
+# @course MO833 - IC/Unicamp
+# @author Guilherme Paulino
+
+language: cpp
+
+os: 
+  - linux
+
+before_install:
+  - sudo apt-get update
+
+script:
+  - mkdir build
+  - cd build
+  - cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
+  - make -j$(( $(nproc) + 1 ))
+  - sudo make install
