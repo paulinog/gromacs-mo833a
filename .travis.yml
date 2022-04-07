@@ -3,9 +3,8 @@
 # @author Guilherme Paulino
 
 language: cpp
-
-os: 
-  - linux
+os: linux
+dist: bionic
 
 before_install:
   - sudo apt-get update
@@ -15,4 +14,4 @@ script:
   - cd build
   - cmake .. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON
   - make -j$(( $(nproc) + 1 ))
-  - sudo make install
+  - make check
