@@ -1,5 +1,8 @@
+[![CMake](https://github.com/paulinog/gromacs-mo833a/actions/workflows/cmake.yml/badge.svg?branch=mo833%2Factivity_2)](https://github.com/paulinog/gromacs-mo833a/actions/workflows/cmake.yml)
 
-               Welcome to the official version of GROMACS!
+---
+
+# Welcome to the official version of GROMACS!
 
 If you are familiar with Unix, it should be fairly trivial to compile and
 install GROMACS. GROMACS uses only the CMake build sytem, and our
