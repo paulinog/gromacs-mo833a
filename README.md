@@ -1,5 +1,7 @@
 [![CMake](https://github.com/paulinog/gromacs-mo833a/actions/workflows/cmake.yml/badge.svg?branch=mo833%2Factivity_2)](https://github.com/paulinog/gromacs-mo833a/actions/workflows/cmake.yml)
 
+[![Build Status](https://app.travis-ci.com/paulinog/gromacs-mo833a.svg?branch=mo833%2Factivity_2)](https://app.travis-ci.com/paulinog/gromacs-mo833a)
+
 ---
 
 # Welcome to the official version of GROMACS!
