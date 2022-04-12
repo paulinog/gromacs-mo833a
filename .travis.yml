@@ -6,6 +6,10 @@ language: cpp
 os: linux
 dist: bionic
 
+branches:
+  only:
+  - mo833/activity_2
+
 before_install:
   - sudo apt-get update
 
