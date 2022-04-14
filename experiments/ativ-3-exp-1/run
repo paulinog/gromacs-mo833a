@@ -5,24 +5,7 @@
 echo "Hi there! I'm now in $PWD"
 DIR_ATIV3="${0%/*}"
 
-##################
-source ${DIR_ATIV3}/check_build.sh
-##################
-
-if [[ ! -d build/Release ]]; then
-  echo "call build.sh Release";
-  source ${DIR_ATIV3}/build.sh Release
-else
-  echo "No worries, build/Release already exists...";
-fi
-
-if [[ ! -d build/Debug ]]; then
-  echo "call build.sh Debug";
-  source ${DIR_ATIV3}/build.sh Debug
-else
-  echo "Okay, build/Debug already exists too...";
-fi
-
+# Download input files
 if [[ ! -d ${DIR_ATIV3}/data ]]; then
   echo "call download.sh";
   source ${DIR_ATIV3}/download.sh
@@ -30,17 +13,26 @@ else
   echo "Fine, download files already there...";
 fi
 
-##################
-source ${DIR_ATIV3}/check_build.sh
-cd build
-source ../${DIR_ATIV3}/check_build.sh
-cd ..
-source ${DIR_ATIV3}/check_build.sh
-##################
+# Compile in Release mode
+if [[ ! -d build/Release ]]; then
+  echo "call build.sh Release";
+  source ${DIR_ATIV3}/build.sh Release
+else
+  echo "No worries, build/Release already exists...";
+fi
+source ${DIR_ATIV3}/process_gmx.sh Release
 
-# source ${DIR_ATIV3}/step_1.sh
-# source ${DIR_ATIV3}/step_2.sh
-# source ${DIR_ATIV3}/step_3.sh
-# source ${DIR_ATIV3}/step_4.sh
-# source ${DIR_ATIV3}/step_5.sh
-# source ${DIR_ATIV3}/step_6.sh
+# Compile in Debug mode
+if [[ ! -d build/Debug ]]; then
+  echo "call build.sh Debug";
+  source ${DIR_ATIV3}/build.sh Debug
+else
+  echo "Okay, build/Debug already exists too...";
+fi 
+source ${DIR_ATIV3}/process_gmx.sh Debug
+
+# Run simulation in Release mode and measure time
+# time -p ${DIR_ATIV3}/simulate_gmx.sh Release
+
+# Run simulation in Debug mode and measure time
+# time -p ${DIR_ATIV3}/simulate_gmx.sh Debug
