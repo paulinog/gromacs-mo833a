@@ -12,10 +12,13 @@ Comparar o desempenho do método `mdrunner()` quando uma simulação específica
 
 ## Experimento
 
-### Compilando 
+### Como rodar
 
-Execute o script: `cd experiments/ativ-3-exp-1/build.sh`.
+Execute o script a partir da raiz desse repositorio: 
 
+```sh
+   ./experiments/ativ-3-exp-1/run
+```
 
 ---
 

@@ -1,17 +1,8 @@
-#!/usr/bin/env bash 
+# @file     download.sh
 # @author	Guilherme Paulino <ra117119 @students.ic.unicamp.br>
 
-set -x
+echo "[download]"
 
-SRC_DATA=experiments/ativ-3-exp-1/data
-
-mkdir -p $SRC_DATA
-
-cd $SRC_DATA
-
-wget https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/6LVN.pdb
-
-wget https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/ions.mdp
-
-cd -
-
+SRC_DATA=${DIR_ATIV3}/data
+wget -P ${SRC_DATA} https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/6LVN.pdb
+wget -P ${SRC_DATA} https://www.ic.unicamp.br/~edson/disciplinas/mo833/2021-1s/anexos/ions.mdp

@@ -1,16 +1,9 @@
-#!/usr/bin/env bash 
+# @file     build.sh
 # @author	Guilherme Paulino <ra117119 @students.ic.unicamp.br>
 
-set -x
+echo "[build]"
 
-mkdir -p build/Relase
-mkdir -p build/Debug
-
-cd build/Relase
-cmake ../.. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Release
+mkdir -p build/$1
+cd build/$1
+cmake ../.. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=$1
 make -j$(( $(nproc) + 1 ))
-
-cd ../Debug
-cmake ../.. -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_BUILD_TYPE=Debug
-make -j$(( $(nproc) + 1 ))
-
