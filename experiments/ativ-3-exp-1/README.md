@@ -14,7 +14,7 @@ Comparar o desempenho do método `mdrunner()` quando uma simulação específica
 
 ### Como rodar
 
-Execute o script a partir da raiz desse repositorio: 
+Execute o script a partir da raiz desse repositório: 
 
 ```sh
    ./experiments/ativ-3-exp-1/run

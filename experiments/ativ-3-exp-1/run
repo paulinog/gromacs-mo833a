@@ -3,36 +3,43 @@
 # @author	Guilherme Paulino <ra117119 @students.ic.unicamp.br>
 
 echo "Hi there! I'm now in $PWD"
-DIR_ATIV3="${0%/*}"
+DIR_ATIV3="${PWD}/${0%/*}"
+
+compile_and_prepare_env() {
+    if [[ ! -d build/$1 ]]; then
+        source ${DIR_ATIV3}/build.sh $1
+    else
+        echo "Skip, build/$1 already exists...";
+    fi
+    source ${DIR_ATIV3}/process_gmx.sh $1
+}
+
+run_simulations() {
+    GMX="${PWD}/build/$1/bin/gmx"
+    DB="${DIR_ATIV3}/data/$1-$(date +%Y%m%d-%H%M%S).log"
+    cd ${DIR_ATIV3}/data/$1/
+    for i in {1..100}; do
+        # time -p ${GMX} mdrun -v -deffnm em >> ${DB}
+        ${GMX} mdrun -v -deffnm em >> ${DB}
+    done
+    cut -d " " -f 5 ${DB} > ${DIR_ATIV3}/$1.csv
+}
 
 # Download input files
 if [[ ! -d ${DIR_ATIV3}/data ]]; then
-  echo "call download.sh";
-  source ${DIR_ATIV3}/download.sh
+    source ${DIR_ATIV3}/download.sh
 else
-  echo "Fine, download files already there...";
+    echo "Skip, download files already there...";
 fi
 
-# Compile in Release mode
-if [[ ! -d build/Release ]]; then
-  echo "call build.sh Release";
-  source ${DIR_ATIV3}/build.sh Release
-else
-  echo "No worries, build/Release already exists...";
-fi
-source ${DIR_ATIV3}/process_gmx.sh Release
+# Compile in Release mode and prepare environment
+compile_and_prepare_env Release
 
 # Compile in Debug mode
-if [[ ! -d build/Debug ]]; then
-  echo "call build.sh Debug";
-  source ${DIR_ATIV3}/build.sh Debug
-else
-  echo "Okay, build/Debug already exists too...";
-fi 
-source ${DIR_ATIV3}/process_gmx.sh Debug
+compile_and_prepare_env Debug
 
 # Run simulation in Release mode and measure time
-# time -p ${DIR_ATIV3}/simulate_gmx.sh Release
+run_simulations Release
 
 # Run simulation in Debug mode and measure time
-# time -p ${DIR_ATIV3}/simulate_gmx.sh Debug
+run_simulations Debug
