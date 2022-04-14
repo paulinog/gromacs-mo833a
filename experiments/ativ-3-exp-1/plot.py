@@ -19,12 +19,13 @@ def prefix(file_path):
     """Return the prefix of the filename"""
     return os.path.splitext(file_path)[0]
 
-def histogram(file_path, name=""):
+def histogram(y_axis, name=""):
     """Plot Histogram"""
-    values = np.genfromtxt(file_path, delimiter="\n")
-    values = Series(values, name="Time of Execution (s)")
+    values = Series(y_axis, name="Time of Execution (s)")
     sns.histplot(data=values, kde=True)
-    plt.savefig("images/" + name + "_histogram.png")
+    filename = (name + "_histogram.png")
+    print("Saving ", filename)
+    plt.savefig(filename)
     # plt.show()
 
 def linear_regression(y_axis, name=""):
@@ -34,7 +35,9 @@ def linear_regression(y_axis, name=""):
     data_frame = DataFrame(data=data_merge)
     sns.lmplot(x="Iteration", y="Time of Execution (s)",
                data=data_frame, ci=95)
-    plt.savefig("images/" + name + "_linear_regression.png")
+    filename = (name + "_linear_regression.png")
+    print("Saving ", filename)
+    plt.savefig(filename)
     # plt.show()
 
 if __name__ == "__main__":
@@ -42,7 +45,7 @@ if __name__ == "__main__":
         file_path = user_input()
         y_axis = np.genfromtxt(file_path, delimiter="\n")
         file_prefix = prefix(file_path)
-        histogram(file_path, file_prefix)
+        histogram(y_axis, file_prefix)
         linear_regression(y_axis, file_prefix)
     except KeyboardInterrupt as e:
         print(e.__str__)

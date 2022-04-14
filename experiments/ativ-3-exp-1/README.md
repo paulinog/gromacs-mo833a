@@ -20,6 +20,16 @@ Execute o script a partir da raiz desse repositório:
    ./experiments/ativ-3-exp-1/run
 ```
 
+### Como plotar os gráficos
+
+Entre na pasta que contém o CSV e execute o script de plote. Exemplo:
+
+```sh
+   cd ./experiments/ativ-3-exp-1/
+   
+   ./plot.py Release.csv
+```
+
 ---
 
 
