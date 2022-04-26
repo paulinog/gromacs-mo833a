@@ -1,6 +1,26 @@
 #!/usr/bin/env bash 
-# Activity 4 - Run experiment
 # @file     run
 # @author	Guilherme Paulino <ra117119 @students.ic.unicamp.br>
 
 echo "Activity 4"
+DIR_ATIV4="${PWD}/${0%/*}"
+SRC_DATA="${DIR_ATIV4}/data/"
+BUILD_MODE="Release"
+GMX="${PWD}/build/${BUILD_MODE}/bin/gmx"
+
+# Compile in Release mode and prepare environment
+source ${DIR_ATIV4}/scripts/build_and_prepare.sh $BUILD_MODE
+
+# Go to Simulation directory
+cd ${SRC_DATA}/${BUILD_MODE}/
+
+# Print Gmx version
+${GMX} --version
+
+# Run Perf analysis
+# perf record -g ${GMX} mdrun -v -deffnm em
+# perf script
+# perf report 
+
+# Run Valgrind analysis
+# valgrind --tool=callgrind ${GMX} mdrun -v -deffnm em
