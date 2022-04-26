@@ -1,0 +1,6 @@
+#!/usr/bin/env bash 
+# Activity 4 - Run experiment
+# @file     run
+# @author	Guilherme Paulino <ra117119 @students.ic.unicamp.br>
+
+echo "Activity 4"
