@@ -18,9 +18,9 @@ cd ${SRC_DATA}/${BUILD_MODE}/
 ${GMX} --version
 
 # Run Perf analysis
-# perf record -g ${GMX} mdrun -v -deffnm em
+perf record -g ${GMX} mdrun -v -deffnm em
 # perf script
 # perf report 
 
 # Run Valgrind analysis
-# valgrind --tool=callgrind ${GMX} mdrun -v -deffnm em
+valgrind --tool=callgrind ${GMX} mdrun -v -deffnm em

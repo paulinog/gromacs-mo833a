@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.8' (creator: callgrind-3.13.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 60174843705
+Trigger: Program termination
+Profiled target:  /home/gpaulino/mo833/gromacs-mo833a/build/Release/bin/gmx mdrun -v -deffnm em (PID 8, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+             Ir 
+--------------------------------------------------------------------------------
+515,141,610,280  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+             Ir  file:function
+--------------------------------------------------------------------------------
+243,163,750,812  ???:void nbnxn_make_pairlist_part<NbnxnPairlistCpu>(Nbnxm::GridSet const&, Nbnxm::Grid const&, Nbnxm::Grid const&, PairsearchWork*, nbnxn_atomdata_t const*, t_blocka const&, float, PairlistType, int, bool, int, bool, float, int, int, NbnxnPairlistCpu*, t_nblist*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+209,176,771,763  ???:nbnxm_kernel_ElecRF_VdwLJCombGeom_VF_4xm(NbnxnPairlistCpu const*, nbnxn_atomdata_t const*, interaction_const_t const*, float const (*) [3], nbnxn_atomdata_output_t*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+ 13,964,927,787  ???:0x0000000000018fe0 [/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0]
+  8,540,368,131  ???:0x0000000000019210 [/usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0]
+  5,769,501,078  ???:pbc_dx_aiuc(t_pbc const*, float const*, float const*, float*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  5,093,429,618  ???:Nbnxm::Grid::fillCell(Nbnxm::GridSetData*, nbnxn_atomdata_t*, int, int, int const*, gmx::ArrayRef<gmx::BasicVector<float> const>, Nbnxm::BoundingBox*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  4,265,566,200  ???:gmx::settle_proj(gmx::settledata*, gmx::ConstraintVariable, int, int const*, t_pbc const*, float const (*) [3], float (*) [3], float (*) [3], int, float (*) [3]) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  2,942,586,496  ???:Nbnxm::sort_atoms(int, bool, int, bool, int*, int, gmx::ArrayRef<gmx::BasicVector<float> const>, float, float, int, gmx::ArrayRef<int>) [clone .constprop.191] [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,969,840,466  ???:put_atoms_in_box(int, float const (*) [3], gmx::ArrayRef<gmx::BasicVector<float> >) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,807,274,700  ???:calc_x_times_f(int, float const (*) [3], float const (*) [3], bool, float const (*) [3], float (*) [3]) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,645,632,450  ???:void gmx::settleTemplate<gmx::SimdFloat, gmx::SimdFBool, 8, float const*, false, false>(gmx::settledata const*, int, int, float const*, float const*, float*, float, float*, float (*) [3], bool*) [clone .isra.6] [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,586,991,000  ???:Nbnxm::Grid::calcColumnIndices(Nbnxm::Grid::Dimensions const&, gmx::UpdateGroupsCog const*, gmx::Range<int>, gmx::ArrayRef<gmx::BasicVector<float> const>, int, int const*, int, int, gmx::ArrayRef<int>, gmx::ArrayRef<int>) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,561,001,728  ???:copy_rvec_to_nbat_real(int const*, int, int, float const (*) [3], int, float*, int) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,078,186,200  ???:void do_dih_fup<(BondedKernelFlavor)2>(int, int, int, int, float, float*, float*, float*, float*, float*, float (*) [4], float (*) [3], t_pbc const*, t_graph const*, float const (*) [3], int, int, int) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+  1,039,970,400  ???:reduceForces(nbnxn_atomdata_t*, gmx::AtomLocality, Nbnxm::GridSet const&, float (*) [3]) [clone ._omp_fn.1] [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    957,324,543  ???:nbnxn_atomdata_set(nbnxn_atomdata_t*, Nbnxm::GridSet const&, t_mdatoms const*, int const*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    929,644,780  ???:do_em_step(t_commrec const*, t_inputrec*, t_mdatoms*, em_state_t*, float, gmx::PaddedVector<gmx::BasicVector<float>, gmx::Allocator<gmx::BasicVector<float>, gmx::HostAllocationPolicy> > const*, em_state_t*, gmx::Constraints*, long) [clone ._omp_fn.0] [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    855,573,600  ???:do_pairs(int, int, int const*, t_iparams const*, float const (*) [3], float (*) [4], float (*) [3], t_pbc const*, t_graph const*, float const*, float*, t_mdatoms const*, t_forcerec const*, bool, gmx::StepWorkload const&, gmx_grppairener_t*, int*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    821,746,804  ???:std::enable_if<(((BondedKernelFlavor)2)!=((BondedKernelFlavor)0))||(!(1)), float>::type (anonymous namespace)::angles<(BondedKernelFlavor)2>(int, int const*, t_iparams const*, float const (*) [3], float (*) [4], float (*) [3], t_pbc const*, t_graph const*, float, float*, t_mdatoms const*, t_fcdata*, int*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    807,284,265  ???:Nbnxm::Grid::setCellIndices(int, int, Nbnxm::GridSetData*, gmx::ArrayRef<Nbnxm::GridWork>, gmx::Range<int>, int const*, gmx::ArrayRef<gmx::BasicVector<float> const>, int, nbnxn_atomdata_t*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    752,368,050  ???:get_f_norm_max(t_commrec const*, t_grpopts*, t_mdatoms*, float const (*) [3], float*, float*, int*) [clone .isra.14] [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    692,630,863  ???:std::vector<nbnxn_cj_t, std::allocator<nbnxn_cj_t> >::_M_default_append(unsigned long) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+    672,079,315  ???:std::enable_if<(((BondedKernelFlavor)2)!=((BondedKernelFlavor)0))||(!(1)), float>::type (anonymous namespace)::rbdihs<(BondedKernelFlavor)2>(int, int const*, t_iparams const*, float const (*) [3], float (*) [4], float (*) [3], t_pbc const*, t_graph const*, float, float*, t_mdatoms const*, t_fcdata*, int*) [/home/gpaulino/mo833/gromacs-mo833a/build/Release/lib/libgromacs.so.5.0.0]
+
