@@ -14,6 +14,9 @@ RUN apt install -y build-essential
 RUN  DEBIAN_FRONTEND=noninteractive \
     apt install -y cmake
 # Install profiling tools
-RUN apt install -y linux-tools-common \
-    linux-tools-generic linux-tools-`uname -r`
 RUN apt install -y valgrind
+RUN apt install -y linux-tools-common \
+    linux-tools-generic linux-tools-5.4.0-109-generic
+RUN mkdir -p /usr/lib/linux-tools/$(uname -r)/
+RUN ln -s /usr/lib/linux-tools/5.4.0-109-generic/* \
+    /usr/lib/linux-tools/$(uname -r)/.
